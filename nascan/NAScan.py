@@ -3,6 +3,7 @@
 import thread
 from lib.common import *
 from lib.start import *
+
 if __name__ == "__main__":
     try:
         CONFIG_INI = get_config()  # 读取配置
@@ -14,6 +15,7 @@ if __name__ == "__main__":
         thread.start_new_thread(cruise, (STATISTICS,MASSCAN_AC))  # 失效记录删除线程
         socket.setdefaulttimeout(int(CONFIG_INI['Timeout']) / 2)  # 设置连接超时
         ac_data = []
+        
         while True:
             now_time = time.localtime()
             now_hour = now_time.tm_hour
